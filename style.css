@@ -1,0 +1,52 @@
+html{
+    height: 100%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#conteiner{
+    margin: 50px auto;
+    width: 70%;
+    height: 400px;
+    border-bottom: 10px solid #7db26a;
+    position: relative;
+    overflow: hidden;
+}
+.jorel{
+    position: absolute;
+    width: 100px;
+    margin: 0;
+    bottom: 0;
+}
+.abacate{
+    position: absolute;
+    bottom: -25px;
+    width: 80px;
+    animation: abacate 2s infinite linear;}
+.pulo{       
+    animation: jorel 500ms ease-out;
+}
+@keyframes abacate {
+    to{
+        right: 100%;
+    }
+    from{
+        right: -90px;
+    }
+}
+@keyframes jorel{
+    0%{
+        bottom: 0;
+    }
+    50%{
+        bottom: 150px;
+    }
+    70%{
+        bottom: 150px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
