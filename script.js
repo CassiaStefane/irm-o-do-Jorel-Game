@@ -2,6 +2,8 @@ const pulo = document.querySelector('.pulo');
 const jorel = document.querySelector('.jorel');
 const abacate = document.querySelector('.abacate');
 const body = document.querySelector('#conteiner');
+const pontos = document.querySelector('.pontos');
+let count = 0;
 
 const pular = () => {
     jorel.classList.add('pulo');
@@ -33,6 +35,11 @@ const roletaImg = () =>{
         }
                 
 }
+const score = setInterval(() =>{
+    count++
+    pontos.innerHTML = `Pontos: ${count}`;
+},2000)
+
 const loop = setInterval(() =>{
     const position = abacate.offsetLeft;
     const posAbacate = +window.getComputedStyle(jorel).bottom.replace('px','');
@@ -43,11 +50,12 @@ const loop = setInterval(() =>{
         
         jorel.style.animation = 'none';
         jorel.style.bottom = `${posAbacate}px`;
-        
+
         clearInterval(loop);
+        clearInterval(score);
 
         roletaImg();
     }
 }, 10)
-
+    
 document.addEventListener('keydown',pular);
