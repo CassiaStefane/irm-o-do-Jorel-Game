@@ -16,31 +16,25 @@ const pular = () => {
     } ,500)
 }
 
-const roletaImg = () =>{
-    const gerador = Math.floor(Math.random()*4);
-        if( gerador=== 1){
-            jorel.src = 'img/happy.jpg';
-            jorel.classList.add('src');
-            jorel.classList.remove('jorel');
-        } else if(gerador === 2){
-            jorel.src = 'img/sad.jpg';
-            jorel.classList.add('src');
-            jorel.classList.remove('jorel');
-        }else if(gerador=== 3){
-            jorel.src = 'img/curioso.jpg'
-            jorel.classList.add('src');
-            jorel.classList.remove('jorel');
-        }
-        else{
-            jorel.src= 'img/furioso.jpg';
-            jorel.classList.add('src');
-            jorel.classList.remove('jorel');
-        }
-                
-}
+const roletaImg = (array) =>{
+    const gerador = Math.floor(Math.random()* array.length);
+    const randomElement = array[gerador];
+    
+        jorel.src = `${randomElement}`;
+        jorel.classList.add('src');
+        jorel.classList.remove('jorel');
+}    
+
+const linkArr = [
+            'img/happy.jpg',
+            'img/sad.jpg',
+            'img/curioso.jpg',
+            'img/furioso.jpg',
+        ];
+
 const score = setInterval(() =>{
     count++
-    if(count > 10) {
+    if(count > 6) {
         abacate.style.animation = 'abacate 1s infinite linear';
         pulo.style.animation = 'jorel 300ms ease-out';
     }
@@ -62,7 +56,7 @@ const loop = setInterval(() =>{
         clearInterval(loop);
         clearInterval(score);
 
-        roletaImg();
+        roletaImg(linkArr);
     }
 }, 10 )
 
